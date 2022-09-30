@@ -10,10 +10,10 @@ export default function App(){
 
     return (
         <ScreenContainer>
-            <LogoContainer>
+            <BoxLogo>
                 <img src={logo} alt="Logo de raio"/>
                 <h1>ZapRecall</h1>
-            </LogoContainer>
+            </BoxLogo>
             <Flashcards />
             <Footer />
         </ScreenContainer>
@@ -32,7 +32,7 @@ const ScreenContainer = styled.div`
     padding-bottom: 200px;
 `;
 
-const LogoContainer = styled.div`
+const BoxLogo = styled.div`
   display: flex;
   align-items: center;
   margin: 40px 0 20px 0;
