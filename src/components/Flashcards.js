@@ -52,9 +52,10 @@ export default function Flashcards(){
     }
     else if(respostaAberta.includes(index)){
       return (
-        <FlashcardAberto data-identifier="flashcard-answer">
-          <p>{value.resposta}</p>
-          
+        <FlashcardAberto>
+          <p data-identifier="flashcard-answer"> 
+            {value.resposta} 
+          </p>
           <ButtonsContainer>
             <Button 
               color={`#FF3030`} 
@@ -77,14 +78,15 @@ export default function Flashcards(){
               Zap!
             </Button>         
           </ButtonsContainer>
-
         </FlashcardAberto>
       )
     }
     else if(perguntaAberta.includes(index)){
       return (
-        <FlashcardAberto data-identifier="flashcard-question">
-          <p>{value.pergunta}</p>
+        <FlashcardAberto>
+          <p data-identifier="flashcard-question">
+            {value.pergunta}
+          </p>
           <img src={seta_virar} 
             onClick={() => setRespostaAberta([index])} 
             alt='mostrar resposta'
@@ -95,7 +97,7 @@ export default function Flashcards(){
     else {
       return (
         <FlashcardFechado >
-          <p data-identifier="flashcard-index-item">Pergunta {index+1}</p>
+          <p data-identifier="flashcard-index-item"> Pergunta {index+1} </p>
           <img src={seta_play} 
             onClick={() => setPerguntaAberta([index])}
             alt='seta play'
