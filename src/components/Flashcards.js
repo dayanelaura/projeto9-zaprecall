@@ -25,8 +25,8 @@ export default function Flashcards(){
       setContador(cont);
         return (
           <FlashcardFechado color={`#FF3030`} textdecoration={`line-through`}>
-            Pergunta {index+1}
-            <img src={icone_erro} alt='icone erro' />
+            <p data-identifier="flashcard-index-item"> Pergunta {index+1} </p>
+            <img src={icone_erro} alt='icone erro' data-identifier="flashcard-status" />
           </FlashcardFechado>
         )
     }
@@ -35,8 +35,8 @@ export default function Flashcards(){
       setContador(cont);
         return (
           <FlashcardFechado color={`#FF922E`} textdecoration={`line-through`}>
-            Pergunta {index+1}
-            <img src={icone_quase} alt='icone quase' />
+            <p data-identifier="flashcard-index-item"> Pergunta {index+1} </p>
+            <img src={icone_quase} alt='icone quase' data-identifier="flashcard-status" />
           </FlashcardFechado>
         )
     }
@@ -45,32 +45,35 @@ export default function Flashcards(){
       setContador(cont);
         return (
           <FlashcardFechado color={`#2FBE34`} textdecoration={`line-through`}>
-            Pergunta {index+1}
-            <img src={icone_certo} alt='icone acerto' />
+            <p data-identifier="flashcard-index-item"> Pergunta {index+1} </p>
+            <img src={icone_certo} alt='icone acerto' data-identifier="flashcard-status" />
           </FlashcardFechado>
         )
     }
     else if(respostaAberta.includes(index)){
       return (
-        <FlashcardAberto>
+        <FlashcardAberto data-identifier="flashcard-answer">
           <p>{value.resposta}</p>
           
           <ButtonsContainer>
             <Button 
               color={`#FF3030`} 
-              onClick={() => setCardEsqueci([...cardEsqueci, index])}>
+              onClick={() => setCardEsqueci([...cardEsqueci, index])}
+              data-identifier="forgot-btn">
               Não lembrei
             </Button>
 
             <Button 
               color={`#FF922E`} 
-              onClick={() => setCardQuase([...cardQuase, index])}>
+              onClick={() => setCardQuase([...cardQuase, index])}
+              data-identifier="almost-forgot-btn">
               Quase não lembrei
             </Button>
 
             <Button 
               color={`#2FBE34`} 
-              onClick={() => setCardLembrei([...cardLembrei, index])}>
+              onClick={() => setCardLembrei([...cardLembrei, index])}
+              data-identifier="zap-btn">
               Zap!
             </Button>         
           </ButtonsContainer>
@@ -80,27 +83,32 @@ export default function Flashcards(){
     }
     else if(perguntaAberta.includes(index)){
       return (
-        <FlashcardAberto>
+        <FlashcardAberto data-identifier="flashcard-question">
           <p>{value.pergunta}</p>
-          <img src={seta_virar} onClick={() => setRespostaAberta([index])} alt='mostrar resposta'/>
+          <img src={seta_virar} 
+            onClick={() => setRespostaAberta([index])} 
+            alt='mostrar resposta'
+            data-identifier="flashcard-turn-btn" />
         </FlashcardAberto>
       )
     }
     else {
       return (
-        <FlashcardFechado 
-          onClick={() => setPerguntaAberta([index])}>
-          Pergunta {index+1}
-          <img src={seta_play} alt='seta play'/>
+        <FlashcardFechado >
+          <p data-identifier="flashcard-index-item">Pergunta {index+1}</p>
+          <img src={seta_play} 
+            onClick={() => setPerguntaAberta([index])}
+            alt='seta play'
+            data-identifier="flashcard-show-btn" />
         </FlashcardFechado>
       )}
   }
   return(
     <>
       <FlashcardsContainer>
-        {DECK.map((value, index) => <DinamicaCards value={value} index={index}/>)}
+        {DECK.map((value, index) => <DinamicaCards key={index} value={value} index={index}/>)}
       </FlashcardsContainer>
-      <Footer>
+      <Footer data-identifier="flashcard-counter">
         <h1>{contador}/{DECK.length} CONCLUÍDOS</h1>
       </Footer>
     </>
@@ -125,17 +133,20 @@ const FlashcardFechado = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: 'Recursive';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
+
     color: ${props => props.color};
     text-decoration: ${props => props.textdecoration}; 
-    cursor: pointer;
-   
+
+    p {
+      font-family: 'Recursive';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+    }
     img {
-        margin-left: 163px;
+      margin-left: 163px;
+      cursor: pointer;
     }
 `;
 
