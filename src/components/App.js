@@ -19,7 +19,7 @@ const BodyContainer = styled.div`
   background-color: #FB6B6B;
   width: 100vw;
   min-height: 110vh;
-  padding-bottom: 100px;
+  padding-bottom: 85px;
   display: flex;
   flex-direction: column;
   align-items: center;
