@@ -1,12 +1,12 @@
-// import IconeZap from "../assets/img/icone_certo.png"
-// import IconeError from "../assets/img/icone_erro.png"
-// import IconeAlmost from "../assets/img/icone_quase.png"
-
 import React from 'react';
 import { useState } from "react";
-import seta_virar from "../assets/img/seta_virar.png"
 import styled from "styled-components";
 import DECK from '../mock';
+import seta_play from "../assets/img/seta_play.png"
+import seta_virar from "../assets/img/seta_virar.png"
+import icone_erro from "../assets/img/icone_erro.png"
+import icone_quase from "../assets/img/icone_quase.png"
+import icone_certo from "../assets/img/icone_certo.png"
 
 export default function Flashcards(){
   const [perguntaAberta, setPerguntaAberta] = useState([]);
@@ -24,21 +24,30 @@ export default function Flashcards(){
       cont++;
       setContador(cont);
         return (
-          <CardEsqueciFechado> Pergunta {index+1} </CardEsqueciFechado>
+          <FlashcardFechado color={`#FF3030`} textdecoration={`line-through`}>
+            Pergunta {index+1}
+            <img src={icone_erro} alt='icone erro' />
+          </FlashcardFechado>
         )
     }
     else if(cardQuase.includes(index)){
       cont++;
       setContador(cont);
         return (
-          <CardQuaseFechado> Pergunta {index+1} </CardQuaseFechado>
+          <FlashcardFechado color={`#FF922E`} textdecoration={`line-through`}>
+            Pergunta {index+1}
+            <img src={icone_quase} alt='icone quase' />
+          </FlashcardFechado>
         )
     }
     else if(cardLembrei.includes(index)){
       cont++;
       setContador(cont);
         return (
-          <CardLembreiFechado> Pergunta {index+1} </CardLembreiFechado>
+          <FlashcardFechado color={`#2FBE34`} textdecoration={`line-through`}>
+            Pergunta {index+1}
+            <img src={icone_certo} alt='icone acerto' />
+          </FlashcardFechado>
         )
     }
     else if(respostaAberta.includes(index)){
@@ -82,6 +91,7 @@ export default function Flashcards(){
         <FlashcardFechado 
           onClick={() => setPerguntaAberta([index])}>
           Pergunta {index+1}
+          <img src={seta_play} alt='seta play'/>
         </FlashcardFechado>
       )}
   }
@@ -105,93 +115,56 @@ const FlashcardsContainer = styled.div`
 `;
 
 const FlashcardFechado = styled.div`
-  width: 300px;
-  height: 65px;
-  margin: 13px 0px;
-  padding-left: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-  color: black;
-  font-family: 'Recursive', cursive;
-  cursor: pointer;
+    width: 300px;
+    height: 35px;
+    background-color: #FFFFFF;
+    margin: 12px;
+    padding: 15px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: ${props => props.color};
+    text-decoration: ${props => props.textdecoration}; 
+    cursor: pointer;
+   
+    img {
+        margin-left: 163px;
+    }
 `;
 
-const CardQuaseFechado = styled.div`
-  width: 300px;
-  height: 65px;
-  margin: 13px 0px;
-  padding-left: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-  color: #FF922E;
-  font-family: 'Recursive', cursive;
-  text-decoration: line-through; 
-  cursor: pointer;
-`
-
-const CardEsqueciFechado = styled.div`
-  width: 300px;
-  height: 65px;
-  margin: 13px 0px;
-  padding-left: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-  color: #FF3030;
-  font-family: 'Recursive', cursive;
-  text-decoration: line-through; 
-  cursor: pointer;
-`
-
-const CardLembreiFechado = styled.div`
-  width: 300px;
-  height: 65px;
-  margin: 13px 0px;
-  padding-left: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-  color: #2FBE34;
-  font-family: 'Recursive', cursive;
-  text-decoration: line-through; 
-  cursor: pointer;
-`
-
 const FlashcardAberto = styled.div`
-  width: 280px;
-  height: 111px;
+  width: 300px;
+  margin: 12px;
+  padding: 15px;
+  min-height: 100px;
+  background: #FFFFD5;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  font-family: 'Recursive';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #333333;
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #FFFFD5;
-  color: black;
-  border-radius: 5px;
-  margin: 10px 0px;
-  padding: 18px 15px;
-  padding-bottom: 6px;
-  cursor: pointer;
-  font-family: 'Recursive', cursive;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
 
-  img {
+  img{
     width: 30px;
     height: 20px;
-    margin-top: 65px;
-    margin-left: 254px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
   }
 `;
 
@@ -201,16 +174,20 @@ const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 10px;
 `;
 
 const Button = styled.div`
   background-color: ${props => props.color};
   height: 37px;
-  width: 85px;
+  width: 90px;
   border-radius: 5px;
-  color: white;
-  font-size: 12px;
+  font-family: 'Recursive';
+  font-style: normal;
   font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #FFFFFF;
   cursor: pointer;
   display: flex;
   flex-wrap: wrap;

@@ -14,13 +14,14 @@ export default function Topo(){
 const TopoContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-top: 44px;
   margin-bottom: 38px;
 
   h1{
     font-family: 'Righteous';
     font-style: normal;
-    font-weight: 900;
+    font-weight: 400;
     font-size: 36px;
     line-height: 45px;
     color: #FFFFFF;
