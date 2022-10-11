@@ -33,6 +33,9 @@ const DECK = [
   { pergunta: "Abdullay",
     resposta: "é gaRota* (e não 'gaRRota') haha",
   },
+  { pergunta: "Abdullay",
+    resposta: "Protect my girlfriend from Joyce",
+  },
   { pergunta: "Mari",
     resposta: "Pensar se vou dar uma chance para o Matt"
   },
@@ -47,9 +50,6 @@ const DECK = [
   },
   { pergunta: "Gabriel",
     resposta: "Lançar música nova para os meus fãs",
-  },
-  { pergunta: "Mari",
-    resposta: "Ajudar a Day nos projetos de React"
   },
 ]
 
