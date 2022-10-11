@@ -83,23 +83,24 @@ export default function Flashcards(){
     }
     else if(perguntaAberta.includes(index)){
       return (
-        <FlashcardAberto onClick={() => setRespostaAberta([index])} >
+        <FlashcardAberto>
           <p data-identifier="flashcard-question">
             {value.pergunta}
           </p>
           <img src={seta_virar} 
-            //onClick={() => setRespostaAberta([index])} 
+            onClick={() => setRespostaAberta([index])} 
             alt='mostrar resposta'
-            data-identifier="flashcard-turn-btn" />
+            data-identifier="flashcard-turn-btn" 
+            />
         </FlashcardAberto>
       )
     }
     else {
       return (
-        <FlashcardFechado >
-          <p data-identifier="flashcard-index-item"> Pergunta {index+1} </p>
+        <FlashcardFechado onClick={() => setPerguntaAberta([index])}>
+          <p data-identifier="flashcard-index-item"> Lembrete {index+1} </p>
           <img src={seta_play} 
-            onClick={() => setPerguntaAberta([index])}
+            //onClick={() => setPerguntaAberta([index])}
             alt='seta play'
             data-identifier="flashcard-show-btn" />
         </FlashcardFechado>
