@@ -45,7 +45,7 @@ export default function Flashcards(){
       setContador(cont);
         return (
           <FlashcardFechado color={`#2FBE34`} textdecoration={`line-through`}>
-            <p data-identifier="flashcard-index-item"> Pergunta {index+1} </p>
+            <p data-identifier="flashcard-index-item"> Lembrete {index+1} </p>
             <img src={icone_certo} alt='icone acerto' data-identifier="flashcard-status" />
           </FlashcardFechado>
         )
