@@ -8,8 +8,12 @@ const DECK = [
   { pergunta: "Mari",
     resposta: "Não trocar os migos do Moon Gang pelo B41xar14 Bléh",
   },
-  { pergunta: "André",
-    resposta: "Nunca deixar a Joy no vácuo pq ela fica pistola </3",
+/*   { pergunta: "André",
+    resposta: "Perceber que a Joyce é o amor da minha vida",
+  }, */
+  {
+    pergunta: "André",
+    resposta: "Beber água / não dar pt nas festinias *proerd*",
   },
   { pergunta: "Apolinario",
     resposta: "Não esquecer meu guarda-chuva para a festa",
@@ -17,20 +21,23 @@ const DECK = [
   { pergunta: "Chris",
     resposta: "Passar 1 dia sem arranjar treta",
   },
-  { pergunta: "Mari",
-    resposta: "Ajudar a Day nos projetos de React"
-  },
   { pergunta: "Matt",
     resposta: "é aNNya",
+  },
+  { pergunta: "Joyce",
+    resposta: "Meditation for not to kick somebody's ass today",
   },
   { pergunta: "Gabriel",
     resposta: "Exercitar o perdão S2 *abraço coletivo*",
   },
   { pergunta: "Abdullay",
-    resposta: "Não é gaRRota, é gaRota haha",
+    resposta: "é gaRota* (e não 'gaRRota') haha",
+  },
+  { pergunta: "Mari",
+    resposta: "Pensar se vou dar uma chance para o Matt"
   },
   { pergunta: "Annya",
-    resposta: "Comprar minha passagem para o Brasil",
+    resposta: "Buy my ticket to Brazil",
   },
   { pergunta: "Apolinario",
     resposta: "No smoking pendrive",
@@ -40,6 +47,9 @@ const DECK = [
   },
   { pergunta: "Gabriel",
     resposta: "Lançar música nova para os meus fãs",
+  },
+  { pergunta: "Mari",
+    resposta: "Ajudar a Day nos projetos de React"
   },
 ]
 
