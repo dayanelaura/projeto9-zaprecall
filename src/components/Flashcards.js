@@ -25,7 +25,7 @@ export default function Flashcards(){
       setContador(cont);
         return (
           <FlashcardFechado color={`#FF3030`} textdecoration={`line-through`}>
-            <p data-identifier="flashcard-index-item"> Pergunta {index+1} </p>
+            <p data-identifier="flashcard-index-item"> Lembrete {index+1} </p>
             <img src={icone_erro} alt='icone erro' data-identifier="flashcard-status" />
           </FlashcardFechado>
         )
@@ -35,7 +35,7 @@ export default function Flashcards(){
       setContador(cont);
         return (
           <FlashcardFechado color={`#FF922E`} textdecoration={`line-through`}>
-            <p data-identifier="flashcard-index-item"> Pergunta {index+1} </p>
+            <p data-identifier="flashcard-index-item"> Lembrete {index+1} </p>
             <img src={icone_quase} alt='icone quase' data-identifier="flashcard-status" />
           </FlashcardFechado>
         )
