@@ -83,12 +83,12 @@ export default function Flashcards(){
     }
     else if(perguntaAberta.includes(index)){
       return (
-        <FlashcardAberto>
+        <FlashcardAberto onClick={() => setRespostaAberta([index])} >
           <p data-identifier="flashcard-question">
             {value.pergunta}
           </p>
           <img src={seta_virar} 
-            onClick={() => setRespostaAberta([index])} 
+            //onClick={() => setRespostaAberta([index])} 
             alt='mostrar resposta'
             data-identifier="flashcard-turn-btn" />
         </FlashcardAberto>
